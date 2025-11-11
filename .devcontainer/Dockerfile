@@ -43,6 +43,7 @@ apt-get install -y --no-install-recommends \
     openssh-client \
     pkg-config \
     python3-pip \
+    python3-pipx \
     python3-venv \
     software-properties-common \
     sudo \
@@ -61,9 +62,8 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-# Upgrade pip/pipx tooling (ensurepip is disabled in Ubuntu, use pip3 directly)
-RUN pip3 install --no-cache-dir --upgrade pip setuptools wheel pipx && \
-    python3 -m pipx ensurepath
+# Upgrade pip (pipx is already installed via apt)
+RUN pip3 install --no-cache-dir --upgrade pip setuptools wheel --break-system-packages
 
 # Install Terraform
 RUN case "${TARGETARCH}" in \
