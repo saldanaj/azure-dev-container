@@ -62,8 +62,8 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-# Upgrade pip and setuptools (avoid replacing apt-managed wheel)
-RUN pip3 install --no-cache-dir --upgrade pip setuptools --break-system-packages
+# Upgrade setuptools only (avoid apt-managed pip/wheel conflicts)
+RUN pip3 install --no-cache-dir --upgrade setuptools --break-system-packages
 
 # Install Terraform
 RUN case "${TARGETARCH}" in \
