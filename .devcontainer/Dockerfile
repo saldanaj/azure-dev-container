@@ -61,10 +61,9 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-# Upgrade pip/pipx tooling
-RUN python3 -m ensurepip --upgrade && \
-    python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel pipx && \
-    python3 -m pipx ensurepath
+# Upgrade pip/pipx tooling (ensurepip is disabled in Ubuntu, use pip3 directly)
+RUN pip3 install --no-cache-dir --upgrade pip setuptools wheel pipx && \
+    pipx ensurepath
 
 # Install Terraform
 RUN case "${TARGETARCH}" in \
