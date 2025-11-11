@@ -1,0 +1,53 @@
+{
+  "name": "azure-infra-dev",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bookworm",
+  "runArgs": [
+    "--init"
+  ],
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.formatting.provider": "black",
+    "azure.tenant": ""
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-azuretools.vscode-azureresource-manager",
+        "ms-azuretools.vscode-azureresources",
+        "ms-azuretools.vscode-bicep",
+        "ms-vscode.azurecli",
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "azure.resourceManager.preferredApiVersion": "latest",
+        "github.copilot.enable": {
+          "*": true,
+          "markdown": true,
+          "plaintext": true,
+          "scminput": false
+        }
+      }
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/scripts/post-create.sh",
+  "containerEnv": {
+    "DEBIAN_FRONTEND": "noninteractive",
+    "PIP_ROOT_USER_ACTION": "ignore",
+    "APT_ALLOW_INSECURE": "true"
+  },
+  "remoteUser": "vscode",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "notify"
+  }
+}
