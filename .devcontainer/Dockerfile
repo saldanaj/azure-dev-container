@@ -62,8 +62,8 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-# Upgrade pip (pipx is already installed via apt)
-RUN pip3 install --no-cache-dir --upgrade pip setuptools wheel --break-system-packages
+# Upgrade pip and setuptools (avoid replacing apt-managed wheel)
+RUN pip3 install --no-cache-dir --upgrade pip setuptools --break-system-packages
 
 # Install Terraform
 RUN case "${TARGETARCH}" in \
