@@ -102,7 +102,7 @@ RUN mkdir -p ${AZURE_EXTENSION_DIR} && \
     done
 
 # Python Azure SDKs and Dev tooling
-RUN python3 -m pip install --no-cache-dir \
+RUN python3 -m pip install --no-cache-dir --break-system-packages \
         azure-identity \
         azure-keyvault-secrets \
         azure-mgmt-resource \
