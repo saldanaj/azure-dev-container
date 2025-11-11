@@ -59,9 +59,6 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-# Ensure Node package managers are up to date
-RUN npm install -g npm@latest yarn pnpm
-
 # Upgrade pip/pipx tooling
 RUN python3 -m ensurepip --upgrade && \
     python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel pipx && \
