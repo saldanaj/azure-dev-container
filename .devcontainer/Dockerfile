@@ -43,7 +43,7 @@ apt-get install -y --no-install-recommends \
     openssh-client \
     pkg-config \
     python3-pip \
-    python3-pipx \
+    pipx \
     python3-venv \
     software-properties-common \
     sudo \
