@@ -42,6 +42,8 @@ apt-get install -y --no-install-recommends \
     lsb-release \
     openssh-client \
     pkg-config \
+    python3-pip \
+    python3-venv \
     software-properties-common \
     sudo \
     tar \
