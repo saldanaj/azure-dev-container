@@ -1,0 +1,11 @@
+# Python packages to bake into the dev container image
+# Update this file and push to trigger a rebuild.
+# Example packages:
+# openai
+# requests
+openai
+requests
+numpy
+pandas
+azure-core
+langchain

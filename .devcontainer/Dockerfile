@@ -115,6 +115,13 @@ RUN python3 -m pip install --no-cache-dir --break-system-packages \
         pre-commit && \
     pipx install poetry
 
+# Optional: project Python deps via requirements.txt
+# Place your list at .devcontainer/requirements.txt
+COPY requirements.txt /tmp/dev-requirements.txt
+RUN if [ -s /tmp/dev-requirements.txt ]; then \
+      python3 -m pip install --no-cache-dir --break-system-packages -r /tmp/dev-requirements.txt; \
+    fi
+
 # Helpful shell defaults
 RUN echo 'eval "$(direnv hook zsh)"' >> /etc/zsh/zprofile && \
     echo 'eval "$(direnv hook bash)"' >> /etc/profile.d/direnv.sh && \

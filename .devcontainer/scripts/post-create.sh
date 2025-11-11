@@ -26,6 +26,9 @@ fi
 if [ -f requirements.dev.txt ] && command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
   echo "Installing Python dev dependencies from requirements.dev.txt"
   "${PYTHON_BIN}" -m pip install --user -r requirements.dev.txt
+elif [ -f .devcontainer/requirements.txt ] && command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
+  echo "Installing Python dependencies from .devcontainer/requirements.txt"
+  "${PYTHON_BIN}" -m pip install --user -r .devcontainer/requirements.txt
 elif [ -f requirements.txt ] && command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
   echo "Installing Python dependencies from requirements.txt"
   "${PYTHON_BIN}" -m pip install --user -r requirements.txt
