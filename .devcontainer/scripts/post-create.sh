@@ -121,7 +121,7 @@ fi
 # Install global AI tooling via npm (after Node.js is available)
 if command -v npm >/dev/null 2>&1; then
   echo "Installing global AI tooling via npm"
-  sudo npm install -g @anthropic-ai/claude-code @openai/codex openai >/tmp/global-ai-install.log 2>&1 && cat /tmp/global-ai-install.log
+  sudo npm install -g @anthropic-ai/claude-code @openai/codex >/tmp/global-ai-install.log 2>&1 && cat /tmp/global-ai-install.log
 fi
 
 # Set az CLI to allow dynamic extension install (after install)
